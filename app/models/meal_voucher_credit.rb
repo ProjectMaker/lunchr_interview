@@ -1,0 +1,2 @@
+class MealVoucherCredit < ApplicationRecord
+end

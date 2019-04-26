@@ -1,0 +1,2 @@
+class RestoOrder < ApplicationRecord
+end
