@@ -49,3 +49,4 @@ gem 'scenic_sqlite_adapter'
 
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 gem 'as-duration'
+gem 'active_model_serializers', '~> 0.10.6', require: true

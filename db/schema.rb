@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_21_102928) do
+ActiveRecord::Schema.define(version: 2019_06_24_120915) do
 
   create_table "card_payments", force: :cascade do |t|
     t.string "merchant_name"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2019_06_21_102928) do
 
   create_view "transactions", sql_definition: <<-SQL
       SELECT
-    id AS indentifier,
+    id,
     merchant_name AS name,
     updated_at,
     created_at,
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2019_06_21_102928) do
     card_payments
   UNION
   SELECT
-    id AS identifier,
+    id,
     resto_name AS name,
     updated_at,
     created_at,
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2019_06_21_102928) do
     resto_orders
   UNION
   SELECT
-    id AS identifier,
+    id,
     company_name AS name,
     updated_at,
     created_at,

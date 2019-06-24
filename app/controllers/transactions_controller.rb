@@ -1,6 +1,6 @@
 class TransactionsController < ApplicationController
   def index
-    render json: {},
+    render json: Transaction.all,
            status: :ok
   end
 end
