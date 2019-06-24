@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_26_105612) do
+ActiveRecord::Schema.define(version: 2019_06_21_102928) do
 
   create_table "card_payments", force: :cascade do |t|
     t.string "merchant_name"
@@ -33,4 +33,33 @@ ActiveRecord::Schema.define(version: 2019_04_26_105612) do
     t.datetime "updated_at", null: false
   end
 
+
+  create_view "transactions", sql_definition: <<-SQL
+      SELECT
+    id AS indentifier,
+    merchant_name AS name,
+    updated_at,
+    created_at,
+    "card" AS source_type
+  FROM
+    card_payments
+  UNION
+  SELECT
+    id AS identifier,
+    resto_name AS name,
+    updated_at,
+    created_at,
+    "resto" AS source_type
+  FROM
+    resto_orders
+  UNION
+  SELECT
+    id AS identifier,
+    company_name AS name,
+    updated_at,
+    created_at,
+    "voucher" AS source_type
+  FROM
+    meal_voucher_credits
+  SQL
 end
