@@ -46,3 +46,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'scenic'
 gem 'scenic_sqlite_adapter'
+
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+gem 'as-duration'
